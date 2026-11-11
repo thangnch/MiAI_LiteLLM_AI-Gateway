@@ -1,0 +1,16 @@
+model_list:
+  - model_name: openai_gpt
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+  - model_name: gemini_flash
+    litellm_params:
+      model: gemini/gemini-2.5-flash"
+      api_key: os.environ/GEMINI_API_KEY
+
+litellm_settings:
+  fallbacks: [{"openai_gpt": ["gemini_flash"]}]
+
+general_settings:
+  master_key: sk-88886666 # khóa admin
+  database_url: os.environ/DATABASE_URL
